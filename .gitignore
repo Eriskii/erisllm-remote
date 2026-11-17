@@ -1,0 +1,9 @@
+/target/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Weights, adapters and converted lenses never go in the repository
+/adapter/
+/data/
+*.safetensors

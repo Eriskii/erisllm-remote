@@ -1,0 +1,29 @@
+[package]
+name = "erisllm-remote"
+description = "Run ErisLLM on one machine and use it from another, over iroh"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/Eriskii/erisllm-remote"
+publish = false
+
+[lib]
+name = "erisllm_remote"
+path = "src/lib.rs"
+
+[[bin]]
+name = "erisllm-remote"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+axum = "0.8"
+clap = { version = "4", features = ["derive", "env"] }
+dirs = "6"
+iroh = "1.4.1"
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "io-util", "io-std", "sync", "signal", "net", "time"] }
+tokio-stream = "0.1"
+
+[profile.release]
+lto = "thin"
